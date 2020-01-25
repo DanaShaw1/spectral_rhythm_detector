@@ -10,7 +10,8 @@ _DEFAULT_MULTITAPER_PARAMS = dict(time_halfbandwidth_product=1,
                                   time_window_step=0.250)
 
 
-def lfp_likelihood(spectral_rhythm_band_power, spectral_rhythm_model, no_spectral_rhythm_model):
+def lfp_likelihood(spectral_rhythm_band_power, spectral_rhythm_model,
+                   no_spectral_rhythm_model):
     """Estimates the likelihood of being in a spectral_rhythm state over time given the
      spectral power of the local field potentials (LFPs).
 
@@ -67,9 +68,9 @@ def fit_lfp_likelihood(spectral_rhythm_band_power, is_spectral_rhythm,
                    no_spectral_rhythm_model=no_spectral_rhythm_model)
 
 
-def estimate_spectral_rhythm_band_power(lfps, sampling_frequency,
-                                        frequency_band=(10, 16), start_time=0.00,
-                                        multitaper_params=_DEFAULT_MULTITAPER_PARAMS):
+def estimate_spectral_rhythm_power(lfps, sampling_frequency,
+                                   frequency_band=(10, 16), start_time=0.00,
+                                   multitaper_params=_DEFAULT_MULTITAPER_PARAMS):
     """Estimates the spectral_rhythm power of each LFP.
 
     Parameters

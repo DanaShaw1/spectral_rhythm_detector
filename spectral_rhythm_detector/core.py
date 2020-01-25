@@ -3,7 +3,7 @@ import pandas as pd
 
 from hmmlearn import hmm
 from spectral_rhythm_detector.lfp_likelihood import (_DEFAULT_MULTITAPER_PARAMS,
-                                                     estimate_spectral_rhythm_band_power)
+                                                     estimate_spectral_rhythm_power)
 
 _startprob_prior = np.log(np.array([np.spacing(1), 1.0 - np.spacing(1)]))
 _DEFAULT_HMM_PARAMS = dict(n_components=2, covariance_type='full',
@@ -36,7 +36,7 @@ def detect_spectral_rhythm(time, lfps, sampling_frequency,
     model : hmmlearn.GaussianHMM instance
 
     '''
-    power_time, spectral_rhythm_band_power = estimate_spectral_rhythm_band_power(
+    power_time, spectral_rhythm_band_power = estimate_spectral_rhythm_power(
         atleast_2d(lfps), sampling_frequency, start_time=time[0],
         multitaper_params=multitaper_params, frequency_band=frequency_band)
     spectral_rhythm_band_power = spectral_rhythm_band_power.reshape(
