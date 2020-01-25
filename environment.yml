@@ -14,8 +14,12 @@ dependencies:
 - spectral_connectivity
 - scipy
 - jupyter
+- jupyterlab
 - nb_conda
 - setuptools
 - pytest
 - pytest-cov
 - coveralls
+- pip
+- pip:
+  - nb-black
