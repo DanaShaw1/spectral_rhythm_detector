@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 INSTALL_REQUIRES = ['numpy >= 1.14', 'matplotlib',
                     'pandas', 'scipy', 'scikit-learn',
-                    'spectral_connectivity', 'hmmlearn']
+                    'spectral_connectivity', 'hmmlearn==0.2.2']
 TESTS_REQUIRE = ['pytest >= 2.7.1']
 
 setup(
