@@ -57,16 +57,16 @@ def detect_spectral_rhythm(time, lfps, sampling_frequency,
 
     is_spectral_rhythm = np.zeros_like(state_ind, dtype=np.bool)
     is_spectral_rhythm[state_ind == spectral_rhythm_ind] = True
-    is_spectral_rhythm = (pd.DataFrame(dict(is_spectral_rhythm=is_spectral_rhythm),
-                                       index=power_time)
-                          .reindex(index=time, method='pad')
-                          .reset_index(drop=True))
+    is_spectral_rhythm = (pd.DataFrame(
+        dict(is_spectral_rhythm=is_spectral_rhythm),
+        index=power_time)
+        .reindex(index=time, method='pad')
+        .reset_index(drop=True))
 
     spectral_rhythm_probability = model.predict_proba(
         np.log(spectral_rhythm_band_power))
     spectral_rhythm_df = (pd.DataFrame(
-        dict(
-            spectral_rhythm_probability=spectral_rhythm_probability[:, spectral_rhythm_ind]),
+        dict(probability=spectral_rhythm_probability[:, spectral_rhythm_ind]),
         index=power_time)
         .reindex(index=time)
         .reset_index(drop=True)

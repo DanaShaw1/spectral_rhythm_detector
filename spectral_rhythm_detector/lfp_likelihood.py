@@ -12,8 +12,8 @@ _DEFAULT_MULTITAPER_PARAMS = dict(time_halfbandwidth_product=1,
 
 def lfp_likelihood(spectral_rhythm_band_power, spectral_rhythm_model,
                    no_spectral_rhythm_model):
-    """Estimates the likelihood of being in a spectral_rhythm state over time given the
-     spectral power of the local field potentials (LFPs).
+    """Estimates the likelihood of being in a spectral_rhythm state over time
+    given the spectral power of the local field potentials (LFPs).
 
     Parameters
     ----------
@@ -60,9 +60,11 @@ def fit_lfp_likelihood(spectral_rhythm_band_power, is_spectral_rhythm,
 
     not_nan = np.all(~np.isnan(spectral_rhythm_band_power), axis=1)
     spectral_rhythm_model = model(**model_kwargs).fit(
-        np.log(spectral_rhythm_band_power[is_spectral_rhythm & not_nan] + np.spacing(1)))
+        np.log(spectral_rhythm_band_power[is_spectral_rhythm & not_nan] +
+               np.spacing(1)))
     no_spectral_rhythm_model = model(**model_kwargs).fit(
-        np.log(spectral_rhythm_band_power[~is_spectral_rhythm & not_nan] + np.spacing(1)))
+        np.log(spectral_rhythm_band_power[~is_spectral_rhythm & not_nan] +
+               np.spacing(1)))
 
     return partial(lfp_likelihood, spectral_rhythm_model=spectral_rhythm_model,
                    no_spectral_rhythm_model=no_spectral_rhythm_model)
