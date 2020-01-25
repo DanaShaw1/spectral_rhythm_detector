@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 
 from hmmlearn import hmm
-from spectral_rhythm_detector.lfp_likelihood import (_DEFAULT_MULTITAPER_PARAMS,
-                                                     estimate_spectral_rhythm_power)
+from spectral_rhythm_detector.lfp_likelihood import (
+    _DEFAULT_MULTITAPER_PARAMS, estimate_spectral_rhythm_power)
 
 _startprob_prior = np.log(np.array([np.spacing(1), 1.0 - np.spacing(1)]))
 _DEFAULT_HMM_PARAMS = dict(n_components=2, covariance_type='full',

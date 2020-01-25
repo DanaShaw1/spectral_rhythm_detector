@@ -91,8 +91,8 @@ NOISE_FUNCTION = {
 
 
 def simulate_LFP(time, spectral_rhythm_times, spectral_rhythm_amplitude=2.0,
-                 spectral_rhythm_width=0.500, noise_type='brown', noise_amplitude=1.3,
-                 spectral_rhythm_frequency=13):
+                 spectral_rhythm_width=0.500, noise_type='brown',
+                 noise_amplitude=1.3, spectral_rhythm_frequency=13):
     '''Simulate a LFP with a spectral_rhythm at spectral_rhythm times
     '''
     noise = (noise_amplitude / 2) * NOISE_FUNCTION[noise_type](time.size)
