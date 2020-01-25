@@ -1,0 +1,21 @@
+name: spectral_rhythm_detector
+channels:
+- defaults
+- conda-forge
+- edeno
+dependencies:
+- "python>=3.6"
+- hmmlearn
+- numpy
+- scipy
+- pandas
+- scikit-learn
+- matplotlib
+- spectral_connectivity
+- scipy
+- jupyter
+- nb_conda
+- setuptools
+- pytest
+- pytest-cov
+- coveralls
