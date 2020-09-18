@@ -9,6 +9,7 @@ dependencies:
 - numpy
 - scipy
 - pandas
+- seaborn
 - scikit-learn
 - matplotlib
 - spectral_connectivity
